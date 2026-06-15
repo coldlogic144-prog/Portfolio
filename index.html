@@ -65,6 +65,59 @@
     }
     .nav-links a:hover { color: var(--yellow); }
 
+    .nav-fiverr {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #1DBF73; color: #fff !important;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.75rem !important; font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-fiverr:hover { background: #19a463 !important; color: #fff !important; transform: translateY(-1px); }
+
+    .btn-fiverr {
+      background: #1DBF73; color: #fff;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-fiverr:hover { background: #fff; color: #000; transform: translateY(-3px); }
+
+    .fiverr-section {
+      background: linear-gradient(135deg, #0d1f17 0%, #090909 60%);
+      border-top: 1px solid #1a3328;
+      border-bottom: 1px solid #1a3328;
+    }
+    .fiverr-inner {
+      max-width: 1160px; margin: 0 auto;
+      padding: 4rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .fiverr-left { flex: 1; min-width: 260px; }
+    .fiverr-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: #1DBF73; margin-bottom: 0.75rem;
+    }
+    .fiverr-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 0.95; text-shadow: 2px 2px 0 #000;
+    }
+    .fiverr-sub {
+      margin-top: 1rem;
+      font-size: 0.9rem; line-height: 1.65; color: var(--muted);
+      max-width: 420px;
+    }
+    .fiverr-badges {
+      margin-top: 1.5rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .fiverr-badge {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid #1a3328; color: #1DBF73;
+      padding: 0.3rem 0.7rem;
+    }
+
     /* ===================== HERO ===================== */
     .hero {
       min-height: 100vh;
@@ -401,7 +454,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
-    </ul>
+      <li><a href="https://www.fiverr.com/s/bdVB6mP" target="_blank" rel="noopener" class="nav-fiverr">Fiverr ↗</a></li>
   </nav>
 
   <!-- ===== HERO ===== -->
@@ -420,6 +473,7 @@
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary">See The Bangers</a>
+        <a href="https://www.fiverr.com/s/bdVB6mP" target="_blank" rel="noopener" class="btn btn-fiverr">Order on Fiverr ↗</a>
         <a href="#contact" class="btn btn-outline">Hire Me (Please)</a>
       </div>
     </div>
@@ -447,6 +501,26 @@
       <span class="ticker-item">📱 CONTENT MACHINE</span>
       <span class="ticker-item">🎯 COLOR GRADING</span>
       <span class="ticker-item">💫 TRANSITIONS</span>
+    </div>
+  </div>
+
+  <!-- ===== FIVERR ===== -->
+  <div class="fiverr-section">
+    <div class="fiverr-inner">
+      <div class="fiverr-left">
+        <div class="fiverr-label">// available on fiverr</div>
+        <h2 class="fiverr-title">NEED AN EDIT<br/>THAT SLAPS?</h2>
+        <p class="fiverr-sub">Professional video editing, color grading, smooth transitions, captions, SFX — everything your video is missing. Fast delivery. Unlimited revisions. 100% satisfaction or I cry about it.</p>
+        <div class="fiverr-badges">
+          <span class="fiverr-badge">⚡ Fast Delivery</span>
+          <span class="fiverr-badge">🎨 Color Grading</span>
+          <span class="fiverr-badge">✂️ Transitions</span>
+          <span class="fiverr-badge">🎵 SFX &amp; Music</span>
+          <span class="fiverr-badge">📝 Captions</span>
+          <span class="fiverr-badge">♾️ Unlimited Revisions</span>
+        </div>
+      </div>
+      <a href="https://www.fiverr.com/s/bdVB6mP" target="_blank" rel="noopener" class="btn btn-fiverr" style="font-size:1rem; padding:1rem 2.2rem; align-self:center; white-space:nowrap;">Order on Fiverr ↗</a>
     </div>
   </div>
 
@@ -552,18 +626,18 @@
     const CONTACT_EMAIL = "coldlogic@144gmail.com";
 
     const VIDEOS = [
-      // Paste new videos here. Example:
-      // { id: "dQw4w9WgXcQ", title: "My First Edit", caption: "IT GO HARD", tag: "edit" },
+      { id: "HB9Ma_ctnBM", title: "Professional Video Edit", caption: "POV: THE EDIT IS IMMACULATE 🔥", tag: "edit", thumbnail: "thumbnail1.png" },
     ];
     // ─────────────────────────────────────────────────────────────
 
 
     /* ---- helpers ---- */
     function ytThumb(id) {
-      return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+      // hqdefault is most reliable for both Shorts and regular videos
+      return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
     }
     function ytFallback(id) {
-      return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+      return `https://img.youtube.com/vi/${id}/0.jpg`;
     }
     function ytLink(id) {
       return `https://www.youtube.com/watch?v=${id}`;
@@ -593,7 +667,7 @@
            aria-label="Watch: ${v.title}">
           <div class="thumb-wrap">
             <img
-              src="${ytThumb(v.id)}"
+              src="${v.thumbnail || ytThumb(v.id)}"
               alt="${v.title}"
               loading="lazy"
               onerror="this.src='${ytFallback(v.id)}'"
